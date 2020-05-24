@@ -1,27 +1,29 @@
-let name = prompt('What is your name? ');
+let sayHi = 'Hi, What\'s your name? ',
+    again = 'Please, try again: ',
+    name = prompt(sayHi);
 
-while (name == '' || name == null) {
-    name = prompt('Please, try again: ');
+while (name === '' || name === null) {
+    name = prompt(again);
 }
 
-alert(name + ", I give you the number from 1 to 100. Try to find out the number with as less tried as you can. After every try, I'll say - 'to less', 'to many',or - 'Yo did it!'.");
+alert(`${name}, in this Binary_Guess_Game, you've get the numbers from 1 to 100. Try with binary method 'catch' the correct number. After every try, You'll get - 'less', 'more', or - 'You guessed!' message. Shall we begin..?`);
 
-let number = random(100);
-let guess = prompt('Your number? ');
-let tries = 0;
+let number = random(100),
+    guess = prompt('Your number? '),
+    tries = 1;
 
 while(guess != number) {
+    tries += 1;
+
     if(guess > number) {
-        guess = prompt('Too many! Try again.. ');
-        tries += 1;
+        guess = prompt('Less! Try again.. ');
     }
     else if(guess < number) {
-        guess = prompt('To less! Try again.. ');
-        tries += 1;
+        guess = prompt('More! Try again.. ');
     } else {
-        alert('Some error happens.. ');
+        alert('Unknown ERROR: Please, restart the page..');
     }
-};
+}
 
 alert(`You guessed! Your number is ${number}. Congrats with your ${tries} tries..`);
 
